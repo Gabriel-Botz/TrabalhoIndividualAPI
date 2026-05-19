@@ -1,11 +1,11 @@
 package org.serratec.TrabalhoIndividualAPI.DTO;
 
-public class EspecialidadeResponse {
+public class EspecialidadeResponseDTO {
 
     private Long id;
     private String nome;
 
-    public EspecialidadeResponse(Long id, String nome) {
+    public EspecialidadeResponseDTO(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
