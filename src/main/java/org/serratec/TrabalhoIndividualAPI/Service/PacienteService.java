@@ -3,9 +3,9 @@ package org.serratec.TrabalhoIndividualAPI.Service;
 import org.serratec.TrabalhoIndividualAPI.DTO.PacienteRequestDTO;
 import org.serratec.TrabalhoIndividualAPI.DTO.PacienteResponseDTO;
 import org.serratec.TrabalhoIndividualAPI.Domain.Paciente;
+import org.serratec.TrabalhoIndividualAPI.Exceptions.ResourceNotFoundException;
 import org.serratec.TrabalhoIndividualAPI.Repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class PacienteService {
 
     public PacienteResponseDTO buscarPorId(Long id){
         Paciente paciente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado"));
 
         return new PacienteResponseDTO(
                 paciente.getId(),
@@ -66,7 +66,7 @@ public class PacienteService {
 
     public PacienteResponseDTO atualizar(Long id, PacienteRequestDTO dto){
         Paciente paciente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado"));
 
         paciente.setCpf(dto.getCpf());
         paciente.setDataNascimento(dto.getDataNascimento());
@@ -86,7 +86,7 @@ public class PacienteService {
 
     public void deletar(Long id){
         Paciente paciente = pacienteRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado"));
 
         pacienteRepository.delete(paciente);
 
