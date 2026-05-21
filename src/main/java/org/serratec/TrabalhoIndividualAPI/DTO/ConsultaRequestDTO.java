@@ -1,24 +1,30 @@
 package org.serratec.TrabalhoIndividualAPI.DTO;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
+@Schema(description = "Dados para criação de uma nova consulta")
 public class ConsultaRequestDTO {
 
+    @Schema(description = "Data e hora do agendamento da consulta")
     @NotNull(message = "A data da consulta é obrigatória.")
     private LocalDateTime dataHoraAgendamento;
 
+    @Schema(description = "Observação sobre a consulta")
     @Size(max = 40, message = "Observação deve ter no máximo 40 caracteres.")
     @NotBlank(message = "O campo Observação não pode estar vazio.")
     private String observacao;
 
+    @Schema(description = "ID do médico")
     @NotNull(message = "O ID do médico é obrigatório.")
     private Long medicoID;
 
+    @Schema(description = "ID do paciente")
     @NotNull(message = "O ID do paciente é obrigatório.")
     private Long pacienteID;
 
