@@ -1,5 +1,4 @@
 package org.serratec.TrabalhoIndividualAPI.DTO;
-
 public class PacienteResponseDTO {
 
     private Long id;
@@ -7,10 +6,11 @@ public class PacienteResponseDTO {
     private String email;
     private String telefone;
 
-    public PacienteResponseDTO(String email, Long id, String nome, String telefone) {
 
-        this.email = email;
+    public PacienteResponseDTO(Long id, String nome, String email, String telefone) {
+
         this.id = id;
+        this.email = email;
         this.nome = nome;
         this.telefone = telefone;
     }
