@@ -9,13 +9,11 @@ import java.util.List;
 
 public class MedicoRequestDTO {
 
-
-
     @Size(max = 40, message = "Nome deve ter no máximo 40 caracteres")
     @NotBlank(message = "O campo Nome não pode estar vazio")
     private String nome;
 
-    @Size(max = 6, message = "CRM deve ter no máximo 6 caracteres")
+    @Size(max = 9, message = "CRM deve ter no máximo 9 caracteres")
     @NotBlank(message = "O campo CRM não pode estar vazio")
     private String crm;
 
@@ -51,6 +49,8 @@ public class MedicoRequestDTO {
     public String getNome() {
         return nome;
     }
+
+
 
     public void setNome(String nome) {
         this.nome = nome;
