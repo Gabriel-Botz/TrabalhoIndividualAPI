@@ -13,6 +13,8 @@ import java.util.List;
 @Service
 public class EspecialidadeService {
 
+    //teste commit
+
     @Autowired
     private EspecialidadeRepository especialidadeRepository;
 
